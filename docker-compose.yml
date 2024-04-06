@@ -1,0 +1,23 @@
+
+version: '3'
+
+services:
+  master-node:
+    image: trufflesuite/ganache-cli:latest
+    restart: always
+    ports:
+      - "8545:8545"
+    volumes:
+      - /mnt/volume_sgp1_01/blockchain/:/ganache_data
+    command:
+      - ganache-cli
+      - --blockTime
+      - "5"
+      - --deterministic
+      - --db=/ganache_data
+      - --mnemonic
+      - 'xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx'
+      - --networkId
+      - '1337'
+      - --hostname
+      - '0.0.0.0'
